@@ -1,0 +1,10 @@
+<p>{{ time }}</p>
+
+<button (click)="onclick()">
+  <ng-template [ngIf]="playing" [ngIfElse]="playTemplateName"]>
+    Pause
+  </ng-template>
+  <ng-template #playTemplateName>
+    Play
+  </ng-template>
+</button>
