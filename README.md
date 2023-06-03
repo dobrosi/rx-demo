@@ -1,6 +1,6 @@
 ## All-In-One
 ```shell
-docker compose up
+docker compose up --build
 ```
 
 ## Backend
