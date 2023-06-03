@@ -4,4 +4,4 @@ WORKDIR /backend
 COPY . /backend
 EXPOSE 8080
 
-CMD mvn spring-boot:run
+ENTRYPOINT ["mvn", "spring-boot:run"]

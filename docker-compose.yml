@@ -1,0 +1,13 @@
+services:
+  backend:
+    container_name: rx-demo-backend
+    build: backend/.
+    ports:
+      - "8080:8080"
+  frontend:
+    container_name: rx-demo-frontend
+    build: frontend/.
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
