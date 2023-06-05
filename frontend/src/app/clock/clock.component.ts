@@ -1,6 +1,5 @@
 import {Component, NgZone} from '@angular/core';
-import {Observable, Subscription, take} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-clock',
@@ -12,7 +11,7 @@ export class ClockComponent {
   playing = true;
   private observable = new Observable<string>(
       observer => {
-        let source = new EventSource("http://localhost:8080/time-stream");
+        let source = new EventSource("/time-stream");
         source.onmessage = event => {
           this.zone.run(() => {
             observer.next(event.data)
@@ -27,7 +26,7 @@ export class ClockComponent {
     );
   private sub?: Subscription;
 
-  constructor(private zone: NgZone, private http: HttpClient) {}
+  constructor(private zone: NgZone) {}
 
   ngOnInit(): void {
     this.subscribe();
