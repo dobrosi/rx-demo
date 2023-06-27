@@ -11,7 +11,7 @@ export class ClockComponent {
   playing = true;
   private observable = new Observable<string>(
       observer => {
-        let source = new EventSource("/time-stream");
+        let source = new EventSource("http://localhost:8080/time-stream");
         source.onmessage = event => {
           this.zone.run(() => {
             observer.next(event.data)

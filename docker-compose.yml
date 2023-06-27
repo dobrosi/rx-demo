@@ -2,14 +2,10 @@ services:
   frontend:
     container_name: rx-demo-frontend
     build: frontend/.
-    volumes:
-      - static-content:/app/dist/rx-demo-frontend
+    ports:
+      - "4200:4200"
   backend:
     container_name: rx-demo-backend
     build: backend/.
-    volumes:
-      - static-content:/rx-demo-frontend
     ports:
       - "8080:8080"
-volumes:
-  static-content:
